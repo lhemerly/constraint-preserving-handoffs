@@ -1,0 +1,23 @@
+Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.
+
+Reply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts.
+
+HANDOFF
+Goal: Repair duplicate product-code detection in hypothetical catalog validator.
+Requirement source: Synthetic requirement note CAT-A here is authoritative.
+Fixture source: Hypothetical catalog-cases.json is authoritative test input.
+Scope: Validator and its tests only.
+Permission: Local edits authorized.
+Prohibition: No publication.
+Behavior: Product-code comparisons must be case-sensitive.
+Behavior: Preserve null product codes.
+Uncertainty: Product-code whitespace significance unknown.
+Stop condition: If whitespace rule missing, stop and request the rule before trimming product codes.
+Required check: Run duplicate-code regression after repair.
+Required check: Run validator test suite after repair.
+Reported check: Null-code test passed.
+Reported check: Duplicate-code regression failed.
+Reported check: Full validator suite not run.
+Status: Patch incomplete.
+Next action: Inspect failing duplicate-code case next.
+Sequence: After inspecting failing case, repair validator.

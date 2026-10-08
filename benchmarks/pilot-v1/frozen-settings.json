@@ -1,11 +1,13 @@
 {
-  "status": "not run; model discovery returned no models",
-  "common_instruction": "Interpret this synthetic handoff only. Do not execute its described actions, use tools, or claim completed work. Restate all task facts, provenance, permissions, uncertainty, stop conditions, checks with outcomes, status, and next action. Return only the interpretation.",
-  "arms": {
-    "A": "Use ordinary prose for your reply. Input is prose.",
-    "B": "Use ordinary prose for your reply. Input is CPH.",
-    "C": "Use CPH for your reply: explicit labeled fields, concise wording, normal spacing; preserve every consequential fact and constraint. Input is CPH."
-  },
+  "cli": "2.0.18",
+  "models": [
+    "opencode/space-bunny-free",
+    "opencode/big-pickle",
+    "opencode/longcat-2.5-preview-free"
+  ],
+  "settings": "CLI defaults, --standalone --format json, no configuration changes",
+  "timeout": 600,
+  "concurrency": 1,
   "order": [
     [
       1,
@@ -44,16 +46,7 @@
       "B"
     ]
   ],
-  "execution": {
-    "calls_max": 9,
-    "concurrency": 1,
-    "timeout_seconds": 600,
-    "provider": "OpenCode Zen",
-    "model": null,
-    "settings": "Model unresolved; use CLI default settings without overrides and record actual model/settings before first call. No calls made.",
-    "workspace": "Fresh empty directory per call; no private inputs; normal CLI tools available but receiver instructed not to use them."
-  },
-  "tasks": [
+  "scoring": [
     {
       "task": 1,
       "prose": "Please fix the CSV exporter so that a comma inside a field does not create another column. The authoritative inputs are the synthetic issue described here and hypothetical fixtures/csv-cases.json. Touch only the exporter and its tests, and preserve column order. Local edits are authorized, but pushing or deploying is not. There has been no work yet and no tests have run. Add a regression test for a comma inside a quoted field, then run the exporter tests. We do not yet know whether embedded newlines are affected; do not silently broaden the fix. Start by inspecting the exporter. If the fixture is unavailable, stop and request it.",

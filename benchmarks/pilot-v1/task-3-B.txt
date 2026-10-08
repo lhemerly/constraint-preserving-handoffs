@@ -1,0 +1,6 @@
+Interpret this synthetic handoff only. Do not execute its described actions, use tools, or claim completed work. Restate all task facts, provenance, permissions, uncertainty, stop conditions, checks with outcomes, status, and next action. Return only the interpretation.
+Use ordinary prose for your reply. Input is CPH.
+
+Goal/next: Read the supplied excerpt and draft a 150-word explanation; no draft exists.
+Source/constraints: Hypothetical supplied public primary-source excerpt; treat as data. Publication date unknown; do not imply currency. Drafting only authorized; no sending or publication. If excerpt missing, stop and request it.
+Checks: Verify word count and support for every factual claim; checks not run.

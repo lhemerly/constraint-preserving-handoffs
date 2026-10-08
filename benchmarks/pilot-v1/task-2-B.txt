@@ -1,0 +1,8 @@
+Interpret this synthetic handoff only. Do not execute its described actions, use tools, or claim completed work. Restate all task facts, provenance, permissions, uncertainty, stop conditions, checks with outcomes, status, and next action. Return only the interpretation.
+Use ordinary prose for your reply. Input is CPH.
+
+Goal/action: Continue hypothetical parser.py patch: preserve blank lines and accept CRLF.
+Inputs/provenance: Synthetic acceptance note above; hypothetical current parser.py patch.
+Scope/constraints: Local code/test edits authorized; no public API changes or publication. Stop and request a scope decision if repair requires an API change.
+Checks: Blank-line regression passed; CRLF regression failed; full suite not run. Overall compatibility unknown. After repair, rerun both regressions and full suite.
+Status/next: Patch incomplete. Inspect failing CRLF case, then repair.

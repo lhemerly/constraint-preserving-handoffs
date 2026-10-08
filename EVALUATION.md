@@ -1,39 +1,24 @@
 # Evaluation plan
 
-Status: pending. No benchmark results are claimed.
+The [completed synthetic study](benchmarks/README.md) is a small interpretation experiment. Real-task delivery, retries in production and model-generated sender-to-receiver transfer remain pending.
 
-## Three-arm whole-exchange pilot
+## Future design
 
-Compare A: normal prose input and reply; B: CPH handoff with ordinary reply; C: CPH handoff and CPH reply. Keep complete task facts and constraints equivalent. Count protocol instructions, both messages, corrections, and any provider-reported reasoning usage. Missing usage remains unknown; provider usage takes precedence for billing. Report body-only and complete prompt counts separately, naming the exact tokenizer encoding; local counts cannot establish hidden tool or system overhead.
+Create public-safe synthetic tasks with a clause-by-clause equivalence ledger and objective acceptance criteria. Compare ordinary prose, dense paragraph shorthand and structured fields. Preserve complete facts, permissions, stop conditions, provenance, uncertainty and requested outputs across every arm; use identical brevity objectives. Freeze tasks, atomic oracles, contradiction/addition rules, model list, settings, balanced order, tokenizer encodings and timeout/missing-cell rules before calls.
 
-The [pilot design](pilot-design.json) freezes three synthetic example inputs, reply instructions, balanced order, and source-fact oracles. This is an interpretation and constraint-retention test, not real engineering delivery. Before any calls, enumerate atomic oracle facts and freeze the provider/model/settings and scoring inventory. Use fresh bounded workspaces, concurrency one, at most nine initial calls, and a 600-second ceiling per call. Receivers must only interpret handoffs and must not execute described actions. Instruct receiver agents in arm C to use the same CPH language in their replies.
+Blind two independent semantic graders to model identity, order, usage and timings; style may reveal format. Use an independent third adjudicator for disagreements, or explicitly disclose any departure. Preserve original grades and indeterminate outcomes. Score strict fidelity (all source facts retained, zero critical errors) alongside recall, critical additions and format compliance.
 
-Execution limitation: the installed OpenCode CLI, version 2.0.18, returned a successful but empty result for `opencode models --standalone`. No selectable model could be verified through normal CLI discovery, so no model calls were made and model/settings selection remains pending. The [official OpenCode model pricing](https://opencode.ai/v2/docs/console/models/) listed Big Pickle and Space Bunny Free as free for input, output, and cached reads when checked on 2026-10-08; pricing alone does not establish local availability. Do not guess a model identifier, change configuration or credentials, or use a paid fallback. Once availability is established, use one verified-free model; if unavailable, try at most one distinct verified-free alternative and label failures. Do not combine different models into a claimed paired result.
-
-Any eventual small pilot is preliminary and independent of private historical conversations. It cannot establish universal efficiency or directly describe past exchanges.
-
-## Design
-
-Create synthetic tasks with explicit ground-truth constraint inventories and checkable outcomes. Cover code repair, research, document editing, conditional permissions, missing references, conflicting authority, failed tests, and multi-hop transfers. Use public primary-source material where external evidence is needed. Do not use private conversations or sensitive task data.
-
-Compare full narrative handoffs, ordinary structured handoffs, and CPH. Give every condition equivalent task facts and accessible artifacts. Include short tasks where CPH's labels may cost more than they save. Separate handoff generation from receiver execution, and score information lost at each stage.
-
-Pre-register prompts, task selection, success criteria, retry limits, model versions/settings, sample size rationale, and scoring rules. Randomize condition order; use repeated independent trials. Blind evaluators to the condition where practical. Report uncertainty and individual failures, not just averages.
+For real task delivery, add independently checkable artifacts and tests. An unauthorized action is failure even if the artifact is correct. Restating supplied facts is interpretation fidelity, not engineering success. Include missing references, conditional permissions, failed checks, ambiguous boundaries and multi-hop transfers.
 
 ## Measures
 
-| Measure | What to record |
+| Measure | Record |
 | --- | --- |
-| Tokens | Model-specific tokenizer counts for the complete input: labels, delimiters, schemas, instructions, references, resolved artifact content, and repeated context. Also count sender output, receiver output, tool exchanges, and retries. Report handoff-only and end-to-end totals separately. |
-| Constraint retention | Recall against the original inventory; also invented constraints, altered conditions, and ambiguity. Score permissions, uncertainty, stop conditions, test outcomes, and provenance separately. |
-| Task success | Objective acceptance checks plus authorization compliance. A correct artifact produced through an unauthorized action is a failure. |
-| Retries | Clarification requests, missing-reference recovery, repair attempts, and total calls to success or exhaustion. |
-| Cross-model transfer | Same-model and different sender/receiver model pairs, with each model's tokenizer and settings recorded; include multi-hop transfer. |
+| Tokens | Body-only, complete protocol/schema/instruction overhead, both messages, resolved artifacts, tools, reasoning if reported, corrections and retries. Name encoding for estimates; provider usage controls billing. Missing usage is unknown. |
+| Constraint retention | Per-fact retained/omitted/contradicted/ambiguous decisions; invented constraints separately. Audit permissions, uncertainty, stop conditions, outcomes and provenance. |
+| Task success | Acceptance tests, authority compliance and delivery status, independently of response length. |
+| Retries | Actual clarification requests, recovery/repair attempts and total calls through success or exhaustion. |
+| Cross-model transfer | Explicit sender/receiver model pairs plus multi-hop cases; handcrafted inputs across receiver models do not establish model-generated transfer. |
+| Availability/latency | Coverage, errors, timeouts, total/mean/median all-attempt latency and answered-only latency; queue/generation split only if evidenced. |
 
-## Analysis and reporting
-
-Compare paired tasks across conditions. Report distributions and confidence intervals for tokens, retention, success, and retries; explain the uncertainty method and handling of exhausted trials. Separate task families and model pairs to avoid hiding regressions in aggregate numbers. Track latency and monetary cost if available, without using paid services solely for this repository.
-
-Test field merging and artifact references as separate ablations. If space removal is explored, treat it as a separate experimental condition; measure ambiguity and tokenizer-dependent behavior rather than assuming fewer characters means fewer tokens.
-
-Publish synthetic prompts, scoring rubrics, versions, raw non-sensitive measurements, and reproducible procedures only after privacy review. Label any exploratory analysis. Claim an advantage only for the measured conditions, and report cases where ordinary prose or structured prompting performs better. Do not infer a training origin or a secret language from results.
+Repeat independent trials, choose sample size before results, report uncertainty and failures by task family/model pair, and avoid pooling away missing cells. Test space removal separately only if seeking a causal whitespace claim; the current dense arm is composite. Publish synthetic prompts, exact counts, grading evidence and versions after privacy review. Claim advantages only for measured conditions; do not infer training origin or universal superiority.

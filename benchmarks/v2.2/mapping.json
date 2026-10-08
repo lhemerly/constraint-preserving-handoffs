@@ -1,0 +1,191 @@
+[
+  {
+    "answer_id": "answer-694de76efa8a",
+    "index": 1,
+    "model": "opencode/space-bunny-free",
+    "task": "catalog",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-3dcd153edfc9",
+    "index": 2,
+    "model": "opencode/space-bunny-free",
+    "task": "catalog",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-63dc81613bca",
+    "index": 3,
+    "model": "opencode/space-bunny-free",
+    "task": "catalog",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-91148af6423e",
+    "index": 4,
+    "model": "opencode/space-bunny-free",
+    "task": "pagination",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-67e201a497c7",
+    "index": 5,
+    "model": "opencode/space-bunny-free",
+    "task": "pagination",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-d8913dd524b3",
+    "index": 6,
+    "model": "opencode/space-bunny-free",
+    "task": "pagination",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-cc249a073f6f",
+    "index": 7,
+    "model": "opencode/space-bunny-free",
+    "task": "time-range",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-9c0dbad7de7a",
+    "index": 8,
+    "model": "opencode/space-bunny-free",
+    "task": "time-range",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-88e5d562d638",
+    "index": 9,
+    "model": "opencode/space-bunny-free",
+    "task": "time-range",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-d41b8d1470ee",
+    "index": 10,
+    "model": "opencode/big-pickle",
+    "task": "catalog",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-6187d8f4b0f5",
+    "index": 11,
+    "model": "opencode/big-pickle",
+    "task": "catalog",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-2f69b4ba6c6d",
+    "index": 12,
+    "model": "opencode/big-pickle",
+    "task": "catalog",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-58e6e7c9ca5d",
+    "index": 13,
+    "model": "opencode/big-pickle",
+    "task": "pagination",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-3952abf3dd06",
+    "index": 14,
+    "model": "opencode/big-pickle",
+    "task": "pagination",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-93baa3939049",
+    "index": 15,
+    "model": "opencode/big-pickle",
+    "task": "pagination",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-7fca5f8353db",
+    "index": 16,
+    "model": "opencode/big-pickle",
+    "task": "time-range",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-01d6aee75649",
+    "index": 17,
+    "model": "opencode/big-pickle",
+    "task": "time-range",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-0fed953b5ecc",
+    "index": 18,
+    "model": "opencode/big-pickle",
+    "task": "time-range",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-96cb15580c7f",
+    "index": 19,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "catalog",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-aff7a820bceb",
+    "index": 20,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "catalog",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-039f33bfc13a",
+    "index": 21,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "catalog",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-101a67aed0dd",
+    "index": 22,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "pagination",
+    "arm": "N"
+  },
+  {
+    "answer_id": "answer-3b757def7065",
+    "index": 23,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "pagination",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-b21ec39ae412",
+    "index": 24,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "pagination",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-afebfab8686b",
+    "index": 25,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "time-range",
+    "arm": "D"
+  },
+  {
+    "answer_id": "answer-e5b762b5af78",
+    "index": 26,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "time-range",
+    "arm": "S"
+  },
+  {
+    "answer_id": "answer-4b9404b48d2b",
+    "index": 27,
+    "model": "opencode/longcat-2.5-preview-free",
+    "task": "time-range",
+    "arm": "N"
+  }
+]

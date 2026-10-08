@@ -1,0 +1,4 @@
+Interpret this synthetic handoff only. Do not execute its described actions, use tools, or claim completed work. Restate all task facts, provenance, permissions, uncertainty, stop conditions, checks with outcomes, status, and next action. Return only the interpretation.
+Use ordinary prose for your reply. Input is prose.
+
+Please fix the CSV exporter so that a comma inside a field does not create another column. The authoritative inputs are the synthetic issue described here and hypothetical fixtures/csv-cases.json. Touch only the exporter and its tests, and preserve column order. Local edits are authorized, but pushing or deploying is not. There has been no work yet and no tests have run. Add a regression test for a comma inside a quoted field, then run the exporter tests. We do not yet know whether embedded newlines are affected; do not silently broaden the fix. Start by inspecting the exporter. If the fixture is unavailable, stop and request it.

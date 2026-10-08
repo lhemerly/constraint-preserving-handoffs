@@ -1,0 +1,23 @@
+Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.
+
+Reply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts.
+
+HANDOFF
+Goal: Repair reversed-range rejection in hypothetical time-range parser.
+Requirement source: Synthetic requirement note TIME-C here is authoritative.
+Fixture source: Hypothetical range-cases.json is authoritative test input.
+Scope: Parser and its tests only.
+Permission: Local edits authorized.
+Prohibition: No deployment.
+Behavior: Reject range whose end precedes start.
+Behavior: Preserve supplied timezone offsets.
+Uncertainty: Daylight-saving ambiguity resolution unknown.
+Stop condition: If daylight-saving rule missing, stop and request the rule before resolving ambiguous local times.
+Required check: Run reversed-range regression after repair.
+Required check: Run parser test suite after repair.
+Reported check: Offset-preservation test passed.
+Reported check: Reversed-range regression failed.
+Reported check: Full parser suite not run.
+Status: Patch incomplete.
+Next action: Inspect failing reversed-range case next.
+Sequence: After inspecting failing case, repair parser.

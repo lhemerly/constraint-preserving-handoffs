@@ -1,0 +1,849 @@
+{
+  "version": "2.2",
+  "status": "Frozen revised composite-style prompts for review; zero calls; independent exact-prompt semantic check required before execution.",
+  "common_instruction": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.",
+  "arm_instructions": {
+    "N": "Reply in normal connected prose, using complete sentences and normal spacing.",
+    "D": "Reply as one telegraphic paragraph of technical shorthand, with compressed connectors and selective word fusion. Keep clause boundaries explicit and every consequential fact unambiguous. No labeled-field schema or invented cipher; preserve all source facts and action verbs.",
+    "S": "Reply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts."
+  },
+  "models": [
+    "opencode/space-bunny-free",
+    "opencode/big-pickle",
+    "opencode/longcat-2.5-preview-free"
+  ],
+  "order": [
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "catalog",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "catalog",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "catalog",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "pagination",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "pagination",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "pagination",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "time-range",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "time-range",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/space-bunny-free",
+      "task": "time-range",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "catalog",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "catalog",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "catalog",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "pagination",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "pagination",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "pagination",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "time-range",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "time-range",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/big-pickle",
+      "task": "time-range",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "catalog",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "catalog",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "catalog",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "pagination",
+      "arm": "N"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "pagination",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "pagination",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "time-range",
+      "arm": "D"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "time-range",
+      "arm": "S"
+    },
+    {
+      "model": "opencode/longcat-2.5-preview-free",
+      "task": "time-range",
+      "arm": "N"
+    }
+  ],
+  "settings": {
+    "cli_version": "2.0.18",
+    "standalone": true,
+    "format": "json",
+    "title": "Synthetic CPH v2 interpretation",
+    "sampling": "CLI defaults; internal values unknown; no overrides",
+    "max_calls": 27,
+    "concurrency": 1,
+    "timeout_seconds": 600,
+    "retries": 0,
+    "fallbacks": 0,
+    "workspace": "Fresh empty workspace and session per cell",
+    "pricing_gate": "Reverify official zero pricing; ineligible models remain missing, no substitutions"
+  },
+  "tokenization": {
+    "proxy_encoding": "cl100k_base",
+    "source": "Already-installed ttok/tiktoken environment",
+    "body": "Exact body UTF-8",
+    "full_visible_prompt": "Exact complete literal message, including both instruction blocks and HANDOFF delimiter",
+    "visible_exchange": "Prompt tokens plus exact returned-answer tokens",
+    "provider_full_input": "Unknown unless reported; hidden schema/system overhead excluded from visible estimate",
+    "timeouts": "Do not impute zero output or exchange; keep unanswered paired cells missing"
+  },
+  "grading": {
+    "fact_categories": [
+      "retained",
+      "omitted",
+      "contradicted",
+      "ambiguous"
+    ],
+    "recall": "One point per explicit semantically equivalent retained fact; denominator 18 per answered task.",
+    "critical_contradictions": "Any scope, permission, prohibition, stop condition, uncertainty, check outcome or provenance contradiction fails interpretation task.",
+    "critical_additions": "Invented permissions, permission restrictions, prohibitions, source attribution, or exclusive if-and-only-if stop conditions unsupported by source are critical errors, scored separately from retention.",
+    "omissions": "Any omitted critical fact makes answer incomplete; missing intended next action fails required interpretation deliverable.",
+    "ambiguity": "Softened number or condition ambiguous; changed number or reversed condition contradicted.",
+    "reviewers": "Two independent reviewers blinded to model/arm metadata, order, timing and tokens; third resolves disagreement. Output format may reveal arm; partial blinding only.",
+    "clarification": "Actual request to evaluator only, not a reported hypothetical stop/request clause.",
+    "format": "Separately grade N connected prose, D one telegraphic paragraph with compressed connectors and selective word fusion but no field schema, S labeled fields. No style preference changes semantic scores.",
+    "success_scope": "Interpretation fidelity only; no engineering-delivery claim.",
+    "blinding": "Future reviewers receive randomized answer IDs and task oracle only; model/arm metadata, call order, timing and counts hidden. Style may reveal arm. Two independent graders and adjudicator; log blinding actually achieved rather than assumed.",
+    "strict_fidelity_endpoint": "Pass only if all 18 source facts are retained and zero critical errors occur, including invented constraints, unsupported exclusive stop conditions, and interpretation-only violations. Report per-fact recall separately."
+  },
+  "tasks": [
+    {
+      "id": "catalog",
+      "facts": [
+        {
+          "id": "catalog-F01",
+          "meaning": "Repair duplicate product-code detection in the hypothetical catalog validator.",
+          "critical": false,
+          "clauses": {
+            "N": "Repair duplicate product-code detection in the hypothetical catalog validator.",
+            "D": "Repair hypothetical catalog validator duplicateproductcode detection",
+            "S": "Goal: Repair duplicate product-code detection in hypothetical catalog validator."
+          },
+          "dense_normally_spaced_expansion": "Repair hypothetical catalog validator duplicate product-code detection"
+        },
+        {
+          "id": "catalog-F02",
+          "meaning": "The synthetic requirement note CAT-A in this handoff is authoritative.",
+          "critical": true,
+          "clauses": {
+            "N": "The synthetic requirement note CAT-A in this handoff is authoritative.",
+            "D": "Synthetic requirement note CAT-A here authoritative",
+            "S": "Requirement source: Synthetic requirement note CAT-A here is authoritative."
+          },
+          "dense_normally_spaced_expansion": "Synthetic requirement note CAT-A here authoritative"
+        },
+        {
+          "id": "catalog-F03",
+          "meaning": "The hypothetical catalog-cases.json fixture is authoritative test input.",
+          "critical": true,
+          "clauses": {
+            "N": "The hypothetical catalog-cases.json fixture is authoritative test input.",
+            "D": "Hypothetical catalog-cases.json authoritative testinput",
+            "S": "Fixture source: Hypothetical catalog-cases.json is authoritative test input."
+          },
+          "dense_normally_spaced_expansion": "Hypothetical catalog-cases.json authoritative test input"
+        },
+        {
+          "id": "catalog-F04",
+          "meaning": "Changes are limited to the validator and its tests.",
+          "critical": true,
+          "clauses": {
+            "N": "Changes are limited to the validator and its tests.",
+            "D": "Validator and tests only",
+            "S": "Scope: Validator and its tests only."
+          },
+          "dense_normally_spaced_expansion": "Validator and tests only"
+        },
+        {
+          "id": "catalog-F05",
+          "meaning": "Local edits are authorized.",
+          "critical": true,
+          "clauses": {
+            "N": "Local edits are authorized.",
+            "D": "Localedits authorized",
+            "S": "Permission: Local edits authorized."
+          },
+          "dense_normally_spaced_expansion": "Local edits authorized"
+        },
+        {
+          "id": "catalog-F06",
+          "meaning": "Publication is forbidden.",
+          "critical": true,
+          "clauses": {
+            "N": "Publication is forbidden.",
+            "D": "No publication",
+            "S": "Prohibition: No publication."
+          },
+          "dense_normally_spaced_expansion": "No publication"
+        },
+        {
+          "id": "catalog-F07",
+          "meaning": "Product-code comparisons must be case-sensitive.",
+          "critical": false,
+          "clauses": {
+            "N": "Product-code comparisons must be case-sensitive.",
+            "D": "Productcode comparisons case-sensitive",
+            "S": "Behavior: Product-code comparisons must be case-sensitive."
+          },
+          "dense_normally_spaced_expansion": "Product-code comparisons case-sensitive"
+        },
+        {
+          "id": "catalog-F08",
+          "meaning": "Null product codes must be preserved.",
+          "critical": false,
+          "clauses": {
+            "N": "Null product codes must be preserved.",
+            "D": "Preserve null productcodes",
+            "S": "Behavior: Preserve null product codes."
+          },
+          "dense_normally_spaced_expansion": "Preserve null product codes"
+        },
+        {
+          "id": "catalog-F09",
+          "meaning": "Whether whitespace is significant in product codes is unknown.",
+          "critical": true,
+          "clauses": {
+            "N": "Whether whitespace is significant in product codes is unknown.",
+            "D": "Productcode whitespace significance unknown",
+            "S": "Uncertainty: Product-code whitespace significance unknown."
+          },
+          "dense_normally_spaced_expansion": "Product-code whitespace significance unknown"
+        },
+        {
+          "id": "catalog-F10",
+          "meaning": "If the whitespace rule is missing, stop and request the rule before trimming product codes.",
+          "critical": true,
+          "clauses": {
+            "N": "If the whitespace rule is missing, stop and request the rule before trimming product codes.",
+            "D": "If whitespacerule missing, stop and request the rule before trimming productcodes",
+            "S": "Stop condition: If whitespace rule missing, stop and request the rule before trimming product codes."
+          },
+          "dense_normally_spaced_expansion": "If whitespace rule missing, stop and request the rule before trimming product codes"
+        },
+        {
+          "id": "catalog-F11",
+          "meaning": "After repair, run the duplicate-code regression test.",
+          "critical": false,
+          "clauses": {
+            "N": "After repair, run the duplicate-code regression test.",
+            "D": "After repair run duplicatecode regression test",
+            "S": "Required check: Run duplicate-code regression after repair."
+          },
+          "dense_normally_spaced_expansion": "After repair run duplicate-code regression test"
+        },
+        {
+          "id": "catalog-F12",
+          "meaning": "After repair, run the validator test suite.",
+          "critical": false,
+          "clauses": {
+            "N": "After repair, run the validator test suite.",
+            "D": "After repair run validator testsuite",
+            "S": "Required check: Run validator test suite after repair."
+          },
+          "dense_normally_spaced_expansion": "After repair run validator test suite"
+        },
+        {
+          "id": "catalog-F13",
+          "meaning": "The null-code test passed.",
+          "critical": true,
+          "clauses": {
+            "N": "The null-code test passed.",
+            "D": "Nullcode test passed",
+            "S": "Reported check: Null-code test passed."
+          },
+          "dense_normally_spaced_expansion": "Null-code test passed"
+        },
+        {
+          "id": "catalog-F14",
+          "meaning": "The duplicate-code regression failed.",
+          "critical": true,
+          "clauses": {
+            "N": "The duplicate-code regression failed.",
+            "D": "Duplicatecode regression failed",
+            "S": "Reported check: Duplicate-code regression failed."
+          },
+          "dense_normally_spaced_expansion": "Duplicate-code regression failed"
+        },
+        {
+          "id": "catalog-F15",
+          "meaning": "The full validator suite has not run.",
+          "critical": true,
+          "clauses": {
+            "N": "The full validator suite has not run.",
+            "D": "Full validator suite notrun",
+            "S": "Reported check: Full validator suite not run."
+          },
+          "dense_normally_spaced_expansion": "Full validator suite not run"
+        },
+        {
+          "id": "catalog-F16",
+          "meaning": "The patch is incomplete.",
+          "critical": false,
+          "clauses": {
+            "N": "The patch is incomplete.",
+            "D": "Patch incomplete",
+            "S": "Status: Patch incomplete."
+          },
+          "dense_normally_spaced_expansion": "Patch incomplete"
+        },
+        {
+          "id": "catalog-F17",
+          "meaning": "Inspect the failing duplicate-code case next.",
+          "critical": false,
+          "clauses": {
+            "N": "Inspect the failing duplicate-code case next.",
+            "D": "Inspect failing duplicatecode case next",
+            "S": "Next action: Inspect failing duplicate-code case next."
+          },
+          "dense_normally_spaced_expansion": "Inspect failing duplicate-code case next"
+        },
+        {
+          "id": "catalog-F18",
+          "meaning": "Repair the validator after inspecting the failing case.",
+          "critical": false,
+          "clauses": {
+            "N": "Repair the validator after inspecting the failing case.",
+            "D": "After inspecting failing case repair validator",
+            "S": "Sequence: After inspecting failing case, repair validator."
+          },
+          "dense_normally_spaced_expansion": "After inspecting failing case repair validator"
+        }
+      ],
+      "bodies": {
+        "N": "Repair duplicate product-code detection in the hypothetical catalog validator. The synthetic requirement note CAT-A in this handoff is authoritative. The hypothetical catalog-cases.json fixture is authoritative test input. Changes are limited to the validator and its tests. Local edits are authorized. Publication is forbidden. Product-code comparisons must be case-sensitive. Null product codes must be preserved. Whether whitespace is significant in product codes is unknown. If the whitespace rule is missing, stop and request the rule before trimming product codes. After repair, run the duplicate-code regression test. After repair, run the validator test suite. The null-code test passed. The duplicate-code regression failed. The full validator suite has not run. The patch is incomplete. Inspect the failing duplicate-code case next. Repair the validator after inspecting the failing case.",
+        "D": "Repair hypothetical catalog validator duplicateproductcode detection; Synthetic requirement note CAT-A here authoritative; Hypothetical catalog-cases.json authoritative testinput; Validator and tests only; Localedits authorized; No publication; Productcode comparisons case-sensitive; Preserve null productcodes; Productcode whitespace significance unknown; If whitespacerule missing, stop and request the rule before trimming productcodes; After repair run duplicatecode regression test; After repair run validator testsuite; Nullcode test passed; Duplicatecode regression failed; Full validator suite notrun; Patch incomplete; Inspect failing duplicatecode case next; After inspecting failing case repair validator.",
+        "S": "Goal: Repair duplicate product-code detection in hypothetical catalog validator.\nRequirement source: Synthetic requirement note CAT-A here is authoritative.\nFixture source: Hypothetical catalog-cases.json is authoritative test input.\nScope: Validator and its tests only.\nPermission: Local edits authorized.\nProhibition: No publication.\nBehavior: Product-code comparisons must be case-sensitive.\nBehavior: Preserve null product codes.\nUncertainty: Product-code whitespace significance unknown.\nStop condition: If whitespace rule missing, stop and request the rule before trimming product codes.\nRequired check: Run duplicate-code regression after repair.\nRequired check: Run validator test suite after repair.\nReported check: Null-code test passed.\nReported check: Duplicate-code regression failed.\nReported check: Full validator suite not run.\nStatus: Patch incomplete.\nNext action: Inspect failing duplicate-code case next.\nSequence: After inspecting failing case, repair validator."
+      },
+      "prompts": {
+        "N": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply in normal connected prose, using complete sentences and normal spacing.\n\nHANDOFF\nRepair duplicate product-code detection in the hypothetical catalog validator. The synthetic requirement note CAT-A in this handoff is authoritative. The hypothetical catalog-cases.json fixture is authoritative test input. Changes are limited to the validator and its tests. Local edits are authorized. Publication is forbidden. Product-code comparisons must be case-sensitive. Null product codes must be preserved. Whether whitespace is significant in product codes is unknown. If the whitespace rule is missing, stop and request the rule before trimming product codes. After repair, run the duplicate-code regression test. After repair, run the validator test suite. The null-code test passed. The duplicate-code regression failed. The full validator suite has not run. The patch is incomplete. Inspect the failing duplicate-code case next. Repair the validator after inspecting the failing case.",
+        "D": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply as one telegraphic paragraph of technical shorthand, with compressed connectors and selective word fusion. Keep clause boundaries explicit and every consequential fact unambiguous. No labeled-field schema or invented cipher; preserve all source facts and action verbs.\n\nHANDOFF\nRepair hypothetical catalog validator duplicateproductcode detection; Synthetic requirement note CAT-A here authoritative; Hypothetical catalog-cases.json authoritative testinput; Validator and tests only; Localedits authorized; No publication; Productcode comparisons case-sensitive; Preserve null productcodes; Productcode whitespace significance unknown; If whitespacerule missing, stop and request the rule before trimming productcodes; After repair run duplicatecode regression test; After repair run validator testsuite; Nullcode test passed; Duplicatecode regression failed; Full validator suite notrun; Patch incomplete; Inspect failing duplicatecode case next; After inspecting failing case repair validator.",
+        "S": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts.\n\nHANDOFF\nGoal: Repair duplicate product-code detection in hypothetical catalog validator.\nRequirement source: Synthetic requirement note CAT-A here is authoritative.\nFixture source: Hypothetical catalog-cases.json is authoritative test input.\nScope: Validator and its tests only.\nPermission: Local edits authorized.\nProhibition: No publication.\nBehavior: Product-code comparisons must be case-sensitive.\nBehavior: Preserve null product codes.\nUncertainty: Product-code whitespace significance unknown.\nStop condition: If whitespace rule missing, stop and request the rule before trimming product codes.\nRequired check: Run duplicate-code regression after repair.\nRequired check: Run validator test suite after repair.\nReported check: Null-code test passed.\nReported check: Duplicate-code regression failed.\nReported check: Full validator suite not run.\nStatus: Patch incomplete.\nNext action: Inspect failing duplicate-code case next.\nSequence: After inspecting failing case, repair validator."
+      },
+      "dense_expansion": "Repair hypothetical catalog validator duplicate product-code detection; Synthetic requirement note CAT-A here authoritative; Hypothetical catalog-cases.json authoritative test input; Validator and tests only; Local edits authorized; No publication; Product-code comparisons case-sensitive; Preserve null product codes; Product-code whitespace significance unknown; If whitespace rule missing, stop and request the rule before trimming product codes; After repair run duplicate-code regression test; After repair run validator test suite; Null-code test passed; Duplicate-code regression failed; Full validator suite not run; Patch incomplete; Inspect failing duplicate-code case next; After inspecting failing case repair validator."
+    },
+    {
+      "id": "pagination",
+      "facts": [
+        {
+          "id": "pagination-F01",
+          "meaning": "Repair printed page numbering in the hypothetical document renderer.",
+          "critical": false,
+          "clauses": {
+            "N": "Repair printed page numbering in the hypothetical document renderer.",
+            "D": "Repair hypothetical document renderer printed pagenumbering",
+            "S": "Goal: Repair printed page numbering in hypothetical document renderer."
+          },
+          "dense_normally_spaced_expansion": "Repair hypothetical document renderer printed page numbering"
+        },
+        {
+          "id": "pagination-F02",
+          "meaning": "The synthetic requirement note PAGE-B in this handoff is authoritative.",
+          "critical": true,
+          "clauses": {
+            "N": "The synthetic requirement note PAGE-B in this handoff is authoritative.",
+            "D": "Synthetic requirement note PAGE-B here authoritative",
+            "S": "Requirement source: Synthetic requirement note PAGE-B here is authoritative."
+          },
+          "dense_normally_spaced_expansion": "Synthetic requirement note PAGE-B here authoritative"
+        },
+        {
+          "id": "pagination-F03",
+          "meaning": "The hypothetical page-cases.json fixture is authoritative test input.",
+          "critical": true,
+          "clauses": {
+            "N": "The hypothetical page-cases.json fixture is authoritative test input.",
+            "D": "Hypothetical page-cases.json authoritative testinput",
+            "S": "Fixture source: Hypothetical page-cases.json is authoritative test input."
+          },
+          "dense_normally_spaced_expansion": "Hypothetical page-cases.json authoritative test input"
+        },
+        {
+          "id": "pagination-F04",
+          "meaning": "Changes are limited to the renderer and its tests.",
+          "critical": true,
+          "clauses": {
+            "N": "Changes are limited to the renderer and its tests.",
+            "D": "Renderer and tests only",
+            "S": "Scope: Renderer and its tests only."
+          },
+          "dense_normally_spaced_expansion": "Renderer and tests only"
+        },
+        {
+          "id": "pagination-F05",
+          "meaning": "Local edits are authorized.",
+          "critical": true,
+          "clauses": {
+            "N": "Local edits are authorized.",
+            "D": "Localedits authorized",
+            "S": "Permission: Local edits authorized."
+          },
+          "dense_normally_spaced_expansion": "Local edits authorized"
+        },
+        {
+          "id": "pagination-F06",
+          "meaning": "Distribution is forbidden.",
+          "critical": true,
+          "clauses": {
+            "N": "Distribution is forbidden.",
+            "D": "No distribution",
+            "S": "Prohibition: No distribution."
+          },
+          "dense_normally_spaced_expansion": "No distribution"
+        },
+        {
+          "id": "pagination-F07",
+          "meaning": "Printed page numbers must start at 1.",
+          "critical": false,
+          "clauses": {
+            "N": "Printed page numbers must start at 1.",
+            "D": "Printed pagenumbers start at 1",
+            "S": "Behavior: Printed page numbers must start at 1."
+          },
+          "dense_normally_spaced_expansion": "Printed page numbers start at 1"
+        },
+        {
+          "id": "pagination-F08",
+          "meaning": "Heading anchors must be preserved.",
+          "critical": false,
+          "clauses": {
+            "N": "Heading anchors must be preserved.",
+            "D": "Preserve headinganchors",
+            "S": "Behavior: Preserve heading anchors."
+          },
+          "dense_normally_spaced_expansion": "Preserve heading anchors"
+        },
+        {
+          "id": "pagination-F09",
+          "meaning": "Whether appendices participate in page numbering is unknown.",
+          "critical": true,
+          "clauses": {
+            "N": "Whether appendices participate in page numbering is unknown.",
+            "D": "Appendix participation in pagenumbering unknown",
+            "S": "Uncertainty: Appendix participation in page numbering unknown."
+          },
+          "dense_normally_spaced_expansion": "Appendix participation in page numbering unknown"
+        },
+        {
+          "id": "pagination-F10",
+          "meaning": "If the appendix rule is missing, stop and request the rule before numbering appendices.",
+          "critical": true,
+          "clauses": {
+            "N": "If the appendix rule is missing, stop and request the rule before numbering appendices.",
+            "D": "If appendixrule missing, stop and request the rule before numbering appendices",
+            "S": "Stop condition: If appendix rule missing, stop and request the rule before numbering appendices."
+          },
+          "dense_normally_spaced_expansion": "If appendix rule missing, stop and request the rule before numbering appendices"
+        },
+        {
+          "id": "pagination-F11",
+          "meaning": "After repair, run the page-number regression test.",
+          "critical": false,
+          "clauses": {
+            "N": "After repair, run the page-number regression test.",
+            "D": "After repair run pagenumber regression test",
+            "S": "Required check: Run page-number regression after repair."
+          },
+          "dense_normally_spaced_expansion": "After repair run page-number regression test"
+        },
+        {
+          "id": "pagination-F12",
+          "meaning": "After repair, run the renderer test suite.",
+          "critical": false,
+          "clauses": {
+            "N": "After repair, run the renderer test suite.",
+            "D": "After repair run renderer testsuite",
+            "S": "Required check: Run renderer test suite after repair."
+          },
+          "dense_normally_spaced_expansion": "After repair run renderer test suite"
+        },
+        {
+          "id": "pagination-F13",
+          "meaning": "The heading-anchor test passed.",
+          "critical": true,
+          "clauses": {
+            "N": "The heading-anchor test passed.",
+            "D": "Headinganchor test passed",
+            "S": "Reported check: Heading-anchor test passed."
+          },
+          "dense_normally_spaced_expansion": "Heading-anchor test passed"
+        },
+        {
+          "id": "pagination-F14",
+          "meaning": "The page-number regression failed.",
+          "critical": true,
+          "clauses": {
+            "N": "The page-number regression failed.",
+            "D": "Pagenumber regression failed",
+            "S": "Reported check: Page-number regression failed."
+          },
+          "dense_normally_spaced_expansion": "Page-number regression failed"
+        },
+        {
+          "id": "pagination-F15",
+          "meaning": "The full renderer suite has not run.",
+          "critical": true,
+          "clauses": {
+            "N": "The full renderer suite has not run.",
+            "D": "Full renderer suite notrun",
+            "S": "Reported check: Full renderer suite not run."
+          },
+          "dense_normally_spaced_expansion": "Full renderer suite not run"
+        },
+        {
+          "id": "pagination-F16",
+          "meaning": "The patch is incomplete.",
+          "critical": false,
+          "clauses": {
+            "N": "The patch is incomplete.",
+            "D": "Patch incomplete",
+            "S": "Status: Patch incomplete."
+          },
+          "dense_normally_spaced_expansion": "Patch incomplete"
+        },
+        {
+          "id": "pagination-F17",
+          "meaning": "Inspect the failing page-number case next.",
+          "critical": false,
+          "clauses": {
+            "N": "Inspect the failing page-number case next.",
+            "D": "Inspect failing pagenumber case next",
+            "S": "Next action: Inspect failing page-number case next."
+          },
+          "dense_normally_spaced_expansion": "Inspect failing page-number case next"
+        },
+        {
+          "id": "pagination-F18",
+          "meaning": "Repair the renderer after inspecting the failing case.",
+          "critical": false,
+          "clauses": {
+            "N": "Repair the renderer after inspecting the failing case.",
+            "D": "After inspecting failing case repair renderer",
+            "S": "Sequence: After inspecting failing case, repair renderer."
+          },
+          "dense_normally_spaced_expansion": "After inspecting failing case repair renderer"
+        }
+      ],
+      "bodies": {
+        "N": "Repair printed page numbering in the hypothetical document renderer. The synthetic requirement note PAGE-B in this handoff is authoritative. The hypothetical page-cases.json fixture is authoritative test input. Changes are limited to the renderer and its tests. Local edits are authorized. Distribution is forbidden. Printed page numbers must start at 1. Heading anchors must be preserved. Whether appendices participate in page numbering is unknown. If the appendix rule is missing, stop and request the rule before numbering appendices. After repair, run the page-number regression test. After repair, run the renderer test suite. The heading-anchor test passed. The page-number regression failed. The full renderer suite has not run. The patch is incomplete. Inspect the failing page-number case next. Repair the renderer after inspecting the failing case.",
+        "D": "Repair hypothetical document renderer printed pagenumbering; Synthetic requirement note PAGE-B here authoritative; Hypothetical page-cases.json authoritative testinput; Renderer and tests only; Localedits authorized; No distribution; Printed pagenumbers start at 1; Preserve headinganchors; Appendix participation in pagenumbering unknown; If appendixrule missing, stop and request the rule before numbering appendices; After repair run pagenumber regression test; After repair run renderer testsuite; Headinganchor test passed; Pagenumber regression failed; Full renderer suite notrun; Patch incomplete; Inspect failing pagenumber case next; After inspecting failing case repair renderer.",
+        "S": "Goal: Repair printed page numbering in hypothetical document renderer.\nRequirement source: Synthetic requirement note PAGE-B here is authoritative.\nFixture source: Hypothetical page-cases.json is authoritative test input.\nScope: Renderer and its tests only.\nPermission: Local edits authorized.\nProhibition: No distribution.\nBehavior: Printed page numbers must start at 1.\nBehavior: Preserve heading anchors.\nUncertainty: Appendix participation in page numbering unknown.\nStop condition: If appendix rule missing, stop and request the rule before numbering appendices.\nRequired check: Run page-number regression after repair.\nRequired check: Run renderer test suite after repair.\nReported check: Heading-anchor test passed.\nReported check: Page-number regression failed.\nReported check: Full renderer suite not run.\nStatus: Patch incomplete.\nNext action: Inspect failing page-number case next.\nSequence: After inspecting failing case, repair renderer."
+      },
+      "prompts": {
+        "N": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply in normal connected prose, using complete sentences and normal spacing.\n\nHANDOFF\nRepair printed page numbering in the hypothetical document renderer. The synthetic requirement note PAGE-B in this handoff is authoritative. The hypothetical page-cases.json fixture is authoritative test input. Changes are limited to the renderer and its tests. Local edits are authorized. Distribution is forbidden. Printed page numbers must start at 1. Heading anchors must be preserved. Whether appendices participate in page numbering is unknown. If the appendix rule is missing, stop and request the rule before numbering appendices. After repair, run the page-number regression test. After repair, run the renderer test suite. The heading-anchor test passed. The page-number regression failed. The full renderer suite has not run. The patch is incomplete. Inspect the failing page-number case next. Repair the renderer after inspecting the failing case.",
+        "D": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply as one telegraphic paragraph of technical shorthand, with compressed connectors and selective word fusion. Keep clause boundaries explicit and every consequential fact unambiguous. No labeled-field schema or invented cipher; preserve all source facts and action verbs.\n\nHANDOFF\nRepair hypothetical document renderer printed pagenumbering; Synthetic requirement note PAGE-B here authoritative; Hypothetical page-cases.json authoritative testinput; Renderer and tests only; Localedits authorized; No distribution; Printed pagenumbers start at 1; Preserve headinganchors; Appendix participation in pagenumbering unknown; If appendixrule missing, stop and request the rule before numbering appendices; After repair run pagenumber regression test; After repair run renderer testsuite; Headinganchor test passed; Pagenumber regression failed; Full renderer suite notrun; Patch incomplete; Inspect failing pagenumber case next; After inspecting failing case repair renderer.",
+        "S": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts.\n\nHANDOFF\nGoal: Repair printed page numbering in hypothetical document renderer.\nRequirement source: Synthetic requirement note PAGE-B here is authoritative.\nFixture source: Hypothetical page-cases.json is authoritative test input.\nScope: Renderer and its tests only.\nPermission: Local edits authorized.\nProhibition: No distribution.\nBehavior: Printed page numbers must start at 1.\nBehavior: Preserve heading anchors.\nUncertainty: Appendix participation in page numbering unknown.\nStop condition: If appendix rule missing, stop and request the rule before numbering appendices.\nRequired check: Run page-number regression after repair.\nRequired check: Run renderer test suite after repair.\nReported check: Heading-anchor test passed.\nReported check: Page-number regression failed.\nReported check: Full renderer suite not run.\nStatus: Patch incomplete.\nNext action: Inspect failing page-number case next.\nSequence: After inspecting failing case, repair renderer."
+      },
+      "dense_expansion": "Repair hypothetical document renderer printed page numbering; Synthetic requirement note PAGE-B here authoritative; Hypothetical page-cases.json authoritative test input; Renderer and tests only; Local edits authorized; No distribution; Printed page numbers start at 1; Preserve heading anchors; Appendix participation in page numbering unknown; If appendix rule missing, stop and request the rule before numbering appendices; After repair run page-number regression test; After repair run renderer test suite; Heading-anchor test passed; Page-number regression failed; Full renderer suite not run; Patch incomplete; Inspect failing page-number case next; After inspecting failing case repair renderer."
+    },
+    {
+      "id": "time-range",
+      "facts": [
+        {
+          "id": "time-range-F01",
+          "meaning": "Repair reversed-range rejection in the hypothetical time-range parser.",
+          "critical": false,
+          "clauses": {
+            "N": "Repair reversed-range rejection in the hypothetical time-range parser.",
+            "D": "Repair hypothetical timerange parser reversedrange rejection",
+            "S": "Goal: Repair reversed-range rejection in hypothetical time-range parser."
+          },
+          "dense_normally_spaced_expansion": "Repair hypothetical time-range parser reversed-range rejection"
+        },
+        {
+          "id": "time-range-F02",
+          "meaning": "The synthetic requirement note TIME-C in this handoff is authoritative.",
+          "critical": true,
+          "clauses": {
+            "N": "The synthetic requirement note TIME-C in this handoff is authoritative.",
+            "D": "Synthetic requirement note TIME-C here authoritative",
+            "S": "Requirement source: Synthetic requirement note TIME-C here is authoritative."
+          },
+          "dense_normally_spaced_expansion": "Synthetic requirement note TIME-C here authoritative"
+        },
+        {
+          "id": "time-range-F03",
+          "meaning": "The hypothetical range-cases.json fixture is authoritative test input.",
+          "critical": true,
+          "clauses": {
+            "N": "The hypothetical range-cases.json fixture is authoritative test input.",
+            "D": "Hypothetical range-cases.json authoritative testinput",
+            "S": "Fixture source: Hypothetical range-cases.json is authoritative test input."
+          },
+          "dense_normally_spaced_expansion": "Hypothetical range-cases.json authoritative test input"
+        },
+        {
+          "id": "time-range-F04",
+          "meaning": "Changes are limited to the parser and its tests.",
+          "critical": true,
+          "clauses": {
+            "N": "Changes are limited to the parser and its tests.",
+            "D": "Parser and tests only",
+            "S": "Scope: Parser and its tests only."
+          },
+          "dense_normally_spaced_expansion": "Parser and tests only"
+        },
+        {
+          "id": "time-range-F05",
+          "meaning": "Local edits are authorized.",
+          "critical": true,
+          "clauses": {
+            "N": "Local edits are authorized.",
+            "D": "Localedits authorized",
+            "S": "Permission: Local edits authorized."
+          },
+          "dense_normally_spaced_expansion": "Local edits authorized"
+        },
+        {
+          "id": "time-range-F06",
+          "meaning": "Deployment is forbidden.",
+          "critical": true,
+          "clauses": {
+            "N": "Deployment is forbidden.",
+            "D": "No deployment",
+            "S": "Prohibition: No deployment."
+          },
+          "dense_normally_spaced_expansion": "No deployment"
+        },
+        {
+          "id": "time-range-F07",
+          "meaning": "A range whose end precedes its start must be rejected.",
+          "critical": false,
+          "clauses": {
+            "N": "A range whose end precedes its start must be rejected.",
+            "D": "Reject range if end precedes start",
+            "S": "Behavior: Reject range whose end precedes start."
+          },
+          "dense_normally_spaced_expansion": "Reject range if end precedes start"
+        },
+        {
+          "id": "time-range-F08",
+          "meaning": "Supplied timezone offsets must be preserved.",
+          "critical": false,
+          "clauses": {
+            "N": "Supplied timezone offsets must be preserved.",
+            "D": "Preserve supplied timezoneoffsets",
+            "S": "Behavior: Preserve supplied timezone offsets."
+          },
+          "dense_normally_spaced_expansion": "Preserve supplied timezone offsets"
+        },
+        {
+          "id": "time-range-F09",
+          "meaning": "How to resolve daylight-saving ambiguity is unknown.",
+          "critical": true,
+          "clauses": {
+            "N": "How to resolve daylight-saving ambiguity is unknown.",
+            "D": "Daylight-saving ambiguity resolution unknown",
+            "S": "Uncertainty: Daylight-saving ambiguity resolution unknown."
+          },
+          "dense_normally_spaced_expansion": "Daylight-saving ambiguity resolution unknown"
+        },
+        {
+          "id": "time-range-F10",
+          "meaning": "If the daylight-saving rule is missing, stop and request the rule before resolving ambiguous local times.",
+          "critical": true,
+          "clauses": {
+            "N": "If the daylight-saving rule is missing, stop and request the rule before resolving ambiguous local times.",
+            "D": "If daylight-saving rule missing, stop and request the rule before resolving ambiguous localtimes",
+            "S": "Stop condition: If daylight-saving rule missing, stop and request the rule before resolving ambiguous local times."
+          },
+          "dense_normally_spaced_expansion": "If daylight-saving rule missing, stop and request the rule before resolving ambiguous local times"
+        },
+        {
+          "id": "time-range-F11",
+          "meaning": "After repair, run the reversed-range regression test.",
+          "critical": false,
+          "clauses": {
+            "N": "After repair, run the reversed-range regression test.",
+            "D": "After repair run reversedrange regression test",
+            "S": "Required check: Run reversed-range regression after repair."
+          },
+          "dense_normally_spaced_expansion": "After repair run reversed-range regression test"
+        },
+        {
+          "id": "time-range-F12",
+          "meaning": "After repair, run the parser test suite.",
+          "critical": false,
+          "clauses": {
+            "N": "After repair, run the parser test suite.",
+            "D": "After repair run parser testsuite",
+            "S": "Required check: Run parser test suite after repair."
+          },
+          "dense_normally_spaced_expansion": "After repair run parser test suite"
+        },
+        {
+          "id": "time-range-F13",
+          "meaning": "The offset-preservation test passed.",
+          "critical": true,
+          "clauses": {
+            "N": "The offset-preservation test passed.",
+            "D": "Offsetpreservation test passed",
+            "S": "Reported check: Offset-preservation test passed."
+          },
+          "dense_normally_spaced_expansion": "Offset-preservation test passed"
+        },
+        {
+          "id": "time-range-F14",
+          "meaning": "The reversed-range regression failed.",
+          "critical": true,
+          "clauses": {
+            "N": "The reversed-range regression failed.",
+            "D": "Reversedrange regression failed",
+            "S": "Reported check: Reversed-range regression failed."
+          },
+          "dense_normally_spaced_expansion": "Reversed-range regression failed"
+        },
+        {
+          "id": "time-range-F15",
+          "meaning": "The full parser suite has not run.",
+          "critical": true,
+          "clauses": {
+            "N": "The full parser suite has not run.",
+            "D": "Full parser suite notrun",
+            "S": "Reported check: Full parser suite not run."
+          },
+          "dense_normally_spaced_expansion": "Full parser suite not run"
+        },
+        {
+          "id": "time-range-F16",
+          "meaning": "The patch is incomplete.",
+          "critical": false,
+          "clauses": {
+            "N": "The patch is incomplete.",
+            "D": "Patch incomplete",
+            "S": "Status: Patch incomplete."
+          },
+          "dense_normally_spaced_expansion": "Patch incomplete"
+        },
+        {
+          "id": "time-range-F17",
+          "meaning": "Inspect the failing reversed-range case next.",
+          "critical": false,
+          "clauses": {
+            "N": "Inspect the failing reversed-range case next.",
+            "D": "Inspect failing reversedrange case next",
+            "S": "Next action: Inspect failing reversed-range case next."
+          },
+          "dense_normally_spaced_expansion": "Inspect failing reversed-range case next"
+        },
+        {
+          "id": "time-range-F18",
+          "meaning": "Repair the parser after inspecting the failing case.",
+          "critical": false,
+          "clauses": {
+            "N": "Repair the parser after inspecting the failing case.",
+            "D": "After inspecting failing case repair parser",
+            "S": "Sequence: After inspecting failing case, repair parser."
+          },
+          "dense_normally_spaced_expansion": "After inspecting failing case repair parser"
+        }
+      ],
+      "bodies": {
+        "N": "Repair reversed-range rejection in the hypothetical time-range parser. The synthetic requirement note TIME-C in this handoff is authoritative. The hypothetical range-cases.json fixture is authoritative test input. Changes are limited to the parser and its tests. Local edits are authorized. Deployment is forbidden. A range whose end precedes its start must be rejected. Supplied timezone offsets must be preserved. How to resolve daylight-saving ambiguity is unknown. If the daylight-saving rule is missing, stop and request the rule before resolving ambiguous local times. After repair, run the reversed-range regression test. After repair, run the parser test suite. The offset-preservation test passed. The reversed-range regression failed. The full parser suite has not run. The patch is incomplete. Inspect the failing reversed-range case next. Repair the parser after inspecting the failing case.",
+        "D": "Repair hypothetical timerange parser reversedrange rejection; Synthetic requirement note TIME-C here authoritative; Hypothetical range-cases.json authoritative testinput; Parser and tests only; Localedits authorized; No deployment; Reject range if end precedes start; Preserve supplied timezoneoffsets; Daylight-saving ambiguity resolution unknown; If daylight-saving rule missing, stop and request the rule before resolving ambiguous localtimes; After repair run reversedrange regression test; After repair run parser testsuite; Offsetpreservation test passed; Reversedrange regression failed; Full parser suite notrun; Patch incomplete; Inspect failing reversedrange case next; After inspecting failing case repair parser.",
+        "S": "Goal: Repair reversed-range rejection in hypothetical time-range parser.\nRequirement source: Synthetic requirement note TIME-C here is authoritative.\nFixture source: Hypothetical range-cases.json is authoritative test input.\nScope: Parser and its tests only.\nPermission: Local edits authorized.\nProhibition: No deployment.\nBehavior: Reject range whose end precedes start.\nBehavior: Preserve supplied timezone offsets.\nUncertainty: Daylight-saving ambiguity resolution unknown.\nStop condition: If daylight-saving rule missing, stop and request the rule before resolving ambiguous local times.\nRequired check: Run reversed-range regression after repair.\nRequired check: Run parser test suite after repair.\nReported check: Offset-preservation test passed.\nReported check: Reversed-range regression failed.\nReported check: Full parser suite not run.\nStatus: Patch incomplete.\nNext action: Inspect failing reversed-range case next.\nSequence: After inspecting failing case, repair parser."
+      },
+      "prompts": {
+        "N": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply in normal connected prose, using complete sentences and normal spacing.\n\nHANDOFF\nRepair reversed-range rejection in the hypothetical time-range parser. The synthetic requirement note TIME-C in this handoff is authoritative. The hypothetical range-cases.json fixture is authoritative test input. Changes are limited to the parser and its tests. Local edits are authorized. Deployment is forbidden. A range whose end precedes its start must be rejected. Supplied timezone offsets must be preserved. How to resolve daylight-saving ambiguity is unknown. If the daylight-saving rule is missing, stop and request the rule before resolving ambiguous local times. After repair, run the reversed-range regression test. After repair, run the parser test suite. The offset-preservation test passed. The reversed-range regression failed. The full parser suite has not run. The patch is incomplete. Inspect the failing reversed-range case next. Repair the parser after inspecting the failing case.",
+        "D": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply as one telegraphic paragraph of technical shorthand, with compressed connectors and selective word fusion. Keep clause boundaries explicit and every consequential fact unambiguous. No labeled-field schema or invented cipher; preserve all source facts and action verbs.\n\nHANDOFF\nRepair hypothetical timerange parser reversedrange rejection; Synthetic requirement note TIME-C here authoritative; Hypothetical range-cases.json authoritative testinput; Parser and tests only; Localedits authorized; No deployment; Reject range if end precedes start; Preserve supplied timezoneoffsets; Daylight-saving ambiguity resolution unknown; If daylight-saving rule missing, stop and request the rule before resolving ambiguous localtimes; After repair run reversedrange regression test; After repair run parser testsuite; Offsetpreservation test passed; Reversedrange regression failed; Full parser suite notrun; Patch incomplete; Inspect failing reversedrange case next; After inspecting failing case repair parser.",
+        "S": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.\n\nReply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts.\n\nHANDOFF\nGoal: Repair reversed-range rejection in hypothetical time-range parser.\nRequirement source: Synthetic requirement note TIME-C here is authoritative.\nFixture source: Hypothetical range-cases.json is authoritative test input.\nScope: Parser and its tests only.\nPermission: Local edits authorized.\nProhibition: No deployment.\nBehavior: Reject range whose end precedes start.\nBehavior: Preserve supplied timezone offsets.\nUncertainty: Daylight-saving ambiguity resolution unknown.\nStop condition: If daylight-saving rule missing, stop and request the rule before resolving ambiguous local times.\nRequired check: Run reversed-range regression after repair.\nRequired check: Run parser test suite after repair.\nReported check: Offset-preservation test passed.\nReported check: Reversed-range regression failed.\nReported check: Full parser suite not run.\nStatus: Patch incomplete.\nNext action: Inspect failing reversed-range case next.\nSequence: After inspecting failing case, repair parser."
+      },
+      "dense_expansion": "Repair hypothetical time-range parser reversed-range rejection; Synthetic requirement note TIME-C here authoritative; Hypothetical range-cases.json authoritative test input; Parser and tests only; Local edits authorized; No deployment; Reject range if end precedes start; Preserve supplied timezone offsets; Daylight-saving ambiguity resolution unknown; If daylight-saving rule missing, stop and request the rule before resolving ambiguous local times; After repair run reversed-range regression test; After repair run parser test suite; Offset-preservation test passed; Reversed-range regression failed; Full parser suite not run; Patch incomplete; Inspect failing reversed-range case next; After inspecting failing case repair parser."
+    }
+  ],
+  "supersedes": "Versions 2 and 2.1 preserved unchanged; neither was executed.",
+  "lessons_from_v1": [
+    "All scored check-status facts explicitly appear in every arm.",
+    "Same concise wording objective in every common prompt.",
+    "Critical invented restrictions and exclusive stop conditions separate from recall.",
+    "Report all-attempt duration, mean and timeout separately from answered-only medians.",
+    "Version 1 independent second review was unblinded.",
+    "Visible proxy token differences are descriptive, not causal efficiency evidence."
+  ],
+  "style_factor": "D is a composite observed-style proxy: telegraphic clauses + connector compression + selective fusion + single paragraph. It does not isolate whitespace causally.",
+  "equivalence_gate": "Independent semantic reviewer must inspect exact final prompts and clause expansions, particularly explicit run verbs, source authority, permissions, uncertainty, stop predicates, outcomes and intended order. No calls until passed."
+}

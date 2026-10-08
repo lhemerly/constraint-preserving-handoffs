@@ -1,0 +1,23 @@
+Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.
+
+Reply using explicit labeled fields with normal spacing. Preserve all facts; choose useful labels without adding facts.
+
+HANDOFF
+Goal: Repair printed page numbering in hypothetical document renderer.
+Requirement source: Synthetic requirement note PAGE-B here is authoritative.
+Fixture source: Hypothetical page-cases.json is authoritative test input.
+Scope: Renderer and its tests only.
+Permission: Local edits authorized.
+Prohibition: No distribution.
+Behavior: Printed page numbers must start at 1.
+Behavior: Preserve heading anchors.
+Uncertainty: Appendix participation in page numbering unknown.
+Stop condition: If appendix rule missing, stop and request the rule before numbering appendices.
+Required check: Run page-number regression after repair.
+Required check: Run renderer test suite after repair.
+Reported check: Heading-anchor test passed.
+Reported check: Page-number regression failed.
+Reported check: Full renderer suite not run.
+Status: Patch incomplete.
+Next action: Inspect failing page-number case next.
+Sequence: After inspecting failing case, repair renderer.

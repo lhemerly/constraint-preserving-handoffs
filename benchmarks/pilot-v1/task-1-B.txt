@@ -1,0 +1,8 @@
+Interpret this synthetic handoff only. Do not execute its described actions, use tools, or claim completed work. Restate all task facts, provenance, permissions, uncertainty, stop conditions, checks with outcomes, status, and next action. Return only the interpretation.
+Use ordinary prose for your reply. Input is CPH.
+
+Goal/action: Fix CSV export: a comma inside a field must not create another column.
+Inputs/provenance: Synthetic issue above; hypothetical fixtures/csv-cases.json is authoritative test input.
+Scope/constraints: Exporter and its tests only; preserve column order. Local edits authorized; no push or deployment. Embedded-newline impact unknown; do not silently broaden scope. Stop and request the fixture if unavailable.
+Checks: Add regression test for a comma inside a quoted field; run exporter tests. No tests run yet.
+Status/next: No work started. Inspect exporter.

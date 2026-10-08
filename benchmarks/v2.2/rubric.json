@@ -1,0 +1,23 @@
+{
+  "common_task_instruction": "Interpret the synthetic handoff below only. Do not execute its described actions, use tools, send messages, edit files, or claim work completed. Return an interpretation containing every source fact and constraint, including provenance, permissions, uncertainty, stop conditions, checks and reported outcomes, status, and intended next action. Restate reported test outcomes as supplied claims, not as tests you performed. Do not invent missing facts. This is a fidelity task, not a request to solve the hypothetical engineering problem. Use concise wording in every format, with no fixed word or token limit. Preserve all required facts; expand when needed for clarity.",
+  "grading": {
+    "fact_categories": [
+      "retained",
+      "omitted",
+      "contradicted",
+      "ambiguous"
+    ],
+    "recall": "One point per explicit semantically equivalent retained fact; denominator 18 per answered task.",
+    "critical_contradictions": "Any scope, permission, prohibition, stop condition, uncertainty, check outcome or provenance contradiction fails interpretation task.",
+    "critical_additions": "Invented permissions, permission restrictions, prohibitions, source attribution, or exclusive if-and-only-if stop conditions unsupported by source are critical errors, scored separately from retention.",
+    "omissions": "Any omitted critical fact makes answer incomplete; missing intended next action fails required interpretation deliverable.",
+    "ambiguity": "Softened number or condition ambiguous; changed number or reversed condition contradicted.",
+    "reviewers": "Two independent reviewers blinded to model/arm metadata, order, timing and tokens; third resolves disagreement. Output format may reveal arm; partial blinding only.",
+    "clarification": "Actual request to evaluator only, not a reported hypothetical stop/request clause.",
+    "format": "Separately grade N connected prose, D one telegraphic paragraph with compressed connectors and selective word fusion but no field schema, S labeled fields. No style preference changes semantic scores.",
+    "success_scope": "Interpretation fidelity only; no engineering-delivery claim.",
+    "blinding": "Future reviewers receive randomized answer IDs and task oracle only; model/arm metadata, call order, timing and counts hidden. Style may reveal arm. Two independent graders and adjudicator; log blinding actually achieved rather than assumed.",
+    "strict_fidelity_endpoint": "Pass only if all 18 source facts are retained and zero critical errors occur, including invented constraints, unsupported exclusive stop conditions, and interpretation-only violations. Report per-fact recall separately."
+  },
+  "instruction": "Review independently without model/arm metadata, counts, timings or call order. Do not open the private mapping or full evidence until grades are locked. Grade every source fact; quote evidence for omissions, ambiguity, contradictions and critical additions. Two independent reviewers; adjudicate disagreements. Style may reveal arm; blinding is partial. Format compliance can be assessed separately after semantic grading."
+}

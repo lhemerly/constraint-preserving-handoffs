@@ -1,0 +1,278 @@
+{
+  "catalog": [
+    {
+      "id": "catalog-F01",
+      "meaning": "Repair duplicate product-code detection in the hypothetical catalog validator.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F02",
+      "meaning": "The synthetic requirement note CAT-A in this handoff is authoritative.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F03",
+      "meaning": "The hypothetical catalog-cases.json fixture is authoritative test input.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F04",
+      "meaning": "Changes are limited to the validator and its tests.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F05",
+      "meaning": "Local edits are authorized.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F06",
+      "meaning": "Publication is forbidden.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F07",
+      "meaning": "Product-code comparisons must be case-sensitive.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F08",
+      "meaning": "Null product codes must be preserved.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F09",
+      "meaning": "Whether whitespace is significant in product codes is unknown.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F10",
+      "meaning": "If the whitespace rule is missing, stop and request the rule before trimming product codes.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F11",
+      "meaning": "After repair, run the duplicate-code regression test.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F12",
+      "meaning": "After repair, run the validator test suite.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F13",
+      "meaning": "The null-code test passed.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F14",
+      "meaning": "The duplicate-code regression failed.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F15",
+      "meaning": "The full validator suite has not run.",
+      "critical": true
+    },
+    {
+      "id": "catalog-F16",
+      "meaning": "The patch is incomplete.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F17",
+      "meaning": "Inspect the failing duplicate-code case next.",
+      "critical": false
+    },
+    {
+      "id": "catalog-F18",
+      "meaning": "Repair the validator after inspecting the failing case.",
+      "critical": false
+    }
+  ],
+  "pagination": [
+    {
+      "id": "pagination-F01",
+      "meaning": "Repair printed page numbering in the hypothetical document renderer.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F02",
+      "meaning": "The synthetic requirement note PAGE-B in this handoff is authoritative.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F03",
+      "meaning": "The hypothetical page-cases.json fixture is authoritative test input.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F04",
+      "meaning": "Changes are limited to the renderer and its tests.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F05",
+      "meaning": "Local edits are authorized.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F06",
+      "meaning": "Distribution is forbidden.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F07",
+      "meaning": "Printed page numbers must start at 1.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F08",
+      "meaning": "Heading anchors must be preserved.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F09",
+      "meaning": "Whether appendices participate in page numbering is unknown.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F10",
+      "meaning": "If the appendix rule is missing, stop and request the rule before numbering appendices.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F11",
+      "meaning": "After repair, run the page-number regression test.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F12",
+      "meaning": "After repair, run the renderer test suite.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F13",
+      "meaning": "The heading-anchor test passed.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F14",
+      "meaning": "The page-number regression failed.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F15",
+      "meaning": "The full renderer suite has not run.",
+      "critical": true
+    },
+    {
+      "id": "pagination-F16",
+      "meaning": "The patch is incomplete.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F17",
+      "meaning": "Inspect the failing page-number case next.",
+      "critical": false
+    },
+    {
+      "id": "pagination-F18",
+      "meaning": "Repair the renderer after inspecting the failing case.",
+      "critical": false
+    }
+  ],
+  "time-range": [
+    {
+      "id": "time-range-F01",
+      "meaning": "Repair reversed-range rejection in the hypothetical time-range parser.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F02",
+      "meaning": "The synthetic requirement note TIME-C in this handoff is authoritative.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F03",
+      "meaning": "The hypothetical range-cases.json fixture is authoritative test input.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F04",
+      "meaning": "Changes are limited to the parser and its tests.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F05",
+      "meaning": "Local edits are authorized.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F06",
+      "meaning": "Deployment is forbidden.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F07",
+      "meaning": "A range whose end precedes its start must be rejected.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F08",
+      "meaning": "Supplied timezone offsets must be preserved.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F09",
+      "meaning": "How to resolve daylight-saving ambiguity is unknown.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F10",
+      "meaning": "If the daylight-saving rule is missing, stop and request the rule before resolving ambiguous local times.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F11",
+      "meaning": "After repair, run the reversed-range regression test.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F12",
+      "meaning": "After repair, run the parser test suite.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F13",
+      "meaning": "The offset-preservation test passed.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F14",
+      "meaning": "The reversed-range regression failed.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F15",
+      "meaning": "The full parser suite has not run.",
+      "critical": true
+    },
+    {
+      "id": "time-range-F16",
+      "meaning": "The patch is incomplete.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F17",
+      "meaning": "Inspect the failing reversed-range case next.",
+      "critical": false
+    },
+    {
+      "id": "time-range-F18",
+      "meaning": "Repair the parser after inspecting the failing case.",
+      "critical": false
+    }
+  ]
+}

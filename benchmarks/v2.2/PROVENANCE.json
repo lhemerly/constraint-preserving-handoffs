@@ -1,0 +1,37 @@
+{
+  "completed_date": "2026-10-08",
+  "source_result_archive_sha256": "fb4da3f785065facf700f4803caaf3e99cdc4901be8dcb154ce86957baac79bb",
+  "frozen_design_sha256": "b948b42f6e86c1667ff9cf33307aaa3993cb748acd1bbd0e0c90ddfb20da582b",
+  "source_blinded_packet_sha256": "a66785c49a5593b79bc1024dbcf3745cf6b78f67827969b5287ccbea7cb40fab",
+  "publication_transform": "Private source-location metadata and CLI session/message/part identifiers removed. Exact synthetic prompts, emitted answer text segments, locked grade objects, reconciliation details, numeric records and ambiguity preserved.",
+  "execution": {
+    "cli": "OpenCode 2.0.18",
+    "title": "Synthetic CPH v2 interpretation",
+    "concurrency": 1,
+    "timeout_seconds": 600,
+    "fresh_context_per_cell": true,
+    "trials_per_cell": 1,
+    "settings": "CLI defaults without overrides; internal sampling values unknown",
+    "attempts": 27,
+    "answers": 27,
+    "timeouts": 0,
+    "errors": 0
+  },
+  "pricing": {
+    "checked_on": "2026-10-08",
+    "sources": [
+      "https://models.dev/api.json",
+      "https://opencode.ai/v2/docs/console/models/"
+    ],
+    "model_input_output_prices": "All three explicit model IDs reported zero input and output prices at execution; no billing usage was emitted."
+  },
+  "tokens": {
+    "package": "tiktoken 0.14.0",
+    "proxy_encoding": "cl100k_base",
+    "complete_visible_prompt": "Exact literal user message, including protocol and delimiters",
+    "answer": "Each exact emitted text segment encoded separately",
+    "visible_exchange": "Complete literal user prompt plus all answer text segments",
+    "unknown": "Hidden system/tool/schema overhead and native provider input/output/cache/reasoning/billing usage"
+  },
+  "join": "answer_id; 27 unique IDs, 18 frozen fact IDs per answer, exact quoted answer evidence validated before joining. No regrading after unblinding."
+}

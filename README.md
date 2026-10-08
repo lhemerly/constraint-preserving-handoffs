@@ -1,38 +1,49 @@
 # Constraint-Preserving Handoffs (CPH)
 
-CPH is an experimental way to hand a task from one agent to another: state the action, point to authoritative inputs, preserve consequential constraints, name required checks, and report status plus the next action.
+CPH is an experimental way to make agent handoffs compact while preserving every consequential constraint. **Use structured CPH as the default:** state the action, authoritative inputs, scope and permissions, checks and outcomes, and status plus next action.
 
-Use short, direct wording and shared artifact references to avoid repeating history. Keep normal spacing and explicit field boundaries. Brevity is useful only when the receiving agent can still act correctly.
+The originally observed form was dense, single-paragraph technical prose: telegraphic clauses, compressed connectors, shared references, compact status wording and sometimes selective word fusion. The labeled structured template is a later designed variant. They share an intent; they are different formats.
 
-## Start here
+## Use it
 
-- Read the [short specification](SPEC.md).
-- Copy the [agent instruction template](AGENT-INSTRUCTIONS.md) into the appropriate agent configuration.
-- Compare the [synthetic examples](EXAMPLES.md).
-- Use the [evaluation plan](EVALUATION.md) before making efficiency claims.
+- Copy either format from [agent instructions](AGENT-INSTRUCTIONS.md); structured comes first and is recommended.
+- Read the [short specification](SPEC.md) and [synthetic worked examples](EXAMPLES.md).
+- Inspect [dense prose and its normally spaced expansion](DENSE-PROSE.md).
+- Review the [benchmark method, results and reproduction](benchmarks/README.md) and [future evaluation plan](EVALUATION.md).
 
 ```text
-Goal/action: Fix the documented CSV export defect.
-Inputs/provenance: Synthetic issue in EXAMPLES.md, example 1; referenced fixtures are hypothetical.
-Scope/constraints: Exporter only. Local edits authorized; no push or deployment. Preserve column order.
-Checks: Add a regression test; run exporter tests. Report actual outcomes.
-Status/next: No work started. Inspect the exporter; stop if the fixture is unavailable.
+Goal/action: Repair the hypothetical catalog validator's duplicate-code detection.
+Inputs/provenance: Synthetic requirement note CAT-A here; hypothetical catalog-cases.json is authoritative test input.
+Scope/constraints: Validator/tests only. Local edits authorized; no publication. Case-sensitive comparisons; preserve null codes. Whitespace significance unknown. If the rule is missing, stop and request it before trimming.
+Checks: After repair, run duplicate-code regression and validator suite. Null-code test passed; duplicate-code regression failed; full suite not run. These are supplied claims.
+Status/next: Patch incomplete. Inspect the failing case, then repair.
 ```
 
-Adapt fields to the task. Merge fields when that improves clarity; omit only irrelevant boilerplate. Never omit permissions, uncertainty, stop conditions, test outcomes, or source provenance to save tokens. References must be accessible and specific enough to resolve; they are not substitutes for constraints the receiver needs immediately.
+Adapt labels and fields to the task; avoid irrelevant boilerplate. Use normal spacing and explicit boundaries in structured handoffs. Never omit permissions, uncertainty, stop conditions, test outcomes or source provenance to save tokens. Do not replace a conditional permission or requirement with an unconditional rule, an added prohibition, or “if and only if.”
 
-CPH applies to agent handoffs. It does not require terse or opaque replies to users. User-facing explanations should remain clear and appropriately detailed.
+CPH governs agent handoffs. It does not require terse or opaque replies to users.
 
-## Evidence and limits
+## What the evidence says
 
-Evaluation is pending. We have not measured token or performance superiority. Selective removal of spaces was an observed style, not a proven optimization, and is not part of this specification. We cannot trace the technique to a specific training origin. We do not claim an emergent secret language or novelty over structured prompting.
+A small, synthetic interpretation experiment compared three two-way formats across three receiver models and three tasks: 27 answers, 18 scored facts each. The separate local review found:
 
-This repository contains original documentation and synthetic examples only. It contains no private conversation corpus or benchmark results. The name describes the intended behavior, not a demonstrated guarantee.
+| Format | Strict pass / fail / indeterminate | Facts retained | Visible token proxy |
+| --- | --- | --- | --- |
+| Normal prose | 7 / 2 / 0 | 162/162 | 6,099 |
+| Dense composite | 6 / 2 / 1 | 162/162 | 4,340 |
+| Structured fields | 8 / 0 / 1 | 161/162 | 5,457 |
+
+Dense used 28.8% fewer visible proxy tokens than prose, with critical added constraints in two answers. Structured is the recommended default for clear review of task state; this small study does not establish universal superiority. Counts use `cl100k_base` and include protocol instructions and replies. Provider billing, reasoning usage and hidden system/tool overhead are unknown. These tasks measured interpretation, not engineering delivery. [Full limitations and evidence](benchmarks/README.md).
+
+An earlier structured-protocol pilot had unequal task facts, a brevity confound, incomplete preregistration and unblinded grading. Its [records and corrections](benchmarks/pilot-v1/README.md) are retained separately.
+
+We cannot trace this style to a specific training origin. We do not claim an emergent secret language or novelty over structured prompting. Selective fusion is a stylistic observation; the dense experiment tested a composite style and did not isolate whitespace causally. Real-task performance and cross-model sender-to-receiver transfer remain open questions.
 
 ## Public context
 
-These primary sources describe related practices; they do not validate CPH:
+These primary sources discuss related practices, not validation of CPH:
 
-- [OpenAI prompt engineering guidance](https://platform.openai.com/docs/guides/prompt-engineering) discusses explicit instructions and context.
-- [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) discusses agent workflows and orchestration.
+- [OpenAI prompt engineering guidance](https://developers.openai.com/api/docs/guides/prompt-engineering)
+- [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
 
+All examples and benchmark tasks are synthetic. No private historical handoff corpus is included.

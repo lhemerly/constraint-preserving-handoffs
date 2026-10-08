@@ -1,0 +1,4 @@
+Interpret this synthetic handoff only. Do not execute its described actions, use tools, or claim completed work. Restate all task facts, provenance, permissions, uncertainty, stop conditions, checks with outcomes, status, and next action. Return only the interpretation.
+Use ordinary prose for your reply. Input is prose.
+
+Continue the hypothetical parser patch in parser.py using the synthetic acceptance note in this example. It must preserve blank lines and accept CRLF input. Local code and test edits are authorized; do not change the public API or publish anything. The blank-line test passed, but the CRLF regression test failed. The full suite has not run, so overall compatibility remains unknown. Inspect the failing CRLF case next, repair it, then rerun both regression tests and the full suite. Stop if the repair requires a public API change and ask for a scope decision.
